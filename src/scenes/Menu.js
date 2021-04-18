@@ -8,50 +8,29 @@ class Menu extends Phaser.Scene {
         // load audio
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/explosion38.wav');
+        //mixkit-failure-arcade-alert-notification-240
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.audio('sfx_retro', './assets/mixkit-retro-game-notification-212.wav');
+        //mixkit-arcade-game-explosion-2759
+        this.load.audio('sfx_retro2', './assets/mixkit-arcade-game-explosion-2759.wav');
+        this.load.audio('sfx_retro1', './assets/mixkit-failure-arcade-alert-notification-240.wav');
+        //mixkit-cinematic-action-suspense-688
+        this.load.audio('sfx_play', './assets/mixkit-cinematic-action-suspense-688.wav');
+        this.load.audio('sfx_menu', './assets/mixkit-ritual-synth-suspense-683.wav');
         this.load.image('title_menu', './assets/titlescreen.png');
     }
 
     create() {
 
-        this.title = this.add.tileSprite (
-            0,
-            0,
-            640,
-            480,
-            'title_menu'
-        ).setOrigin(0,0);
-        /*// menu text configuration
-        let menuConfig = {
-            fontFamily: 'Courier',
-            fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
-            align: 'right',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 0
-        }
-
-        // show menu text
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - 
-        borderPadding, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/2, 'Use ← → arrows to move & (F) to fire',
-        menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#00FF00';
-        menuConfig.color = '#000';
-        this.add.text(game.config.width/2, game.config.height/2 + borderUISize +
-        borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5);
-        */
-
+        // place starfield
+        this.title = this.add.tileSprite(0, 0, game.config.width, game.config.height,
+            'title_menu').setOrigin(0, 0);
+        //this.sound.play('sfx_menu');
         // define keys
-        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
-        keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
-        
+        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
     }
 
     update() {
@@ -61,7 +40,7 @@ class Menu extends Phaser.Scene {
                 spaceshipSpeed: 3,
                 gameTimer: 60000
             }
-            this.sound.play('sfx_select');
+            this.sound.play('sfx_retro');
             this.scene.start('playScene');
         }
         if (Phaser.Input.Keyboard.JustDown(keyDOWN)) {
@@ -70,7 +49,7 @@ class Menu extends Phaser.Scene {
                 spaceshipSpeed: 4,
                 gameTimer: 45000
             }
-            this.sound.play('sfx_select');
+            this.sound.play('sfx_retro');
             this.scene.start('playScene');
         }
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
@@ -79,7 +58,7 @@ class Menu extends Phaser.Scene {
                 spaceshipSpeed: 3,
                 gameTimer: 60000
             }
-            this.sound.play('sfx_select');
+            this.sound.play('sfx_retro');
             this.scene.start('playScene');
         }
         if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
@@ -88,7 +67,7 @@ class Menu extends Phaser.Scene {
                 spaceshipSpeed: 4,
                 gameTimer: 45000
             }
-            this.sound.play('sfx_select');
+            this.sound.play('sfx_retro');
             this.scene.start('playScene');
         }
     }
