@@ -41,8 +41,9 @@ class Play extends Phaser.Scene {
 
         // add spaceship (x3)
         this.ship01 = new Ship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'spaceship', 0, 30).setOrigin(0, 0);
-        this.ship02 = new Ship(this, game.config.width + borderUISize * 3, borderUISize * 5, 'spaceship', 0, 20).setOrigin(0, 0);
+        this.ship02 = new Ship(this, game.config.width + borderUISize * 3, borderUISize * 7, 'spaceship', 0, 20).setOrigin(0, 0);
         this.ship03 = new UniqueShip(this, game.config.width, borderUISize * 6 + borderPadding * 4, 'newFighter', 0, 10).setOrigin(0, 0);
+        this.ship04 = new UniqueShip(this, game.config.width + borderUISize * 3 , borderUISize * 5, 'newFighter', 0, 20).setOrigin(0, 0);
 
         this.UI = this.add.tileSprite(0, 0, game.config.width, game.config.height,
         'UI').setOrigin(0, 0);
@@ -115,9 +116,14 @@ class Play extends Phaser.Scene {
             this.ship01.update();           // update spaceships (x3)
             this.ship02.update();
             this.ship03.update();   
+            this.ship04.update(); 
         }
 
         // check collisions
+        if(this.checkCollision(this.p1Rocket, this.ship04)) {
+            this.p1Rocket.reset();
+            this.UniqueShipExplode(this.ship04);
+        }
         if(this.checkCollision(this.p1Rocket, this.ship03)) {
             this.p1Rocket.reset();
             this.UniqueShipExplode(this.ship03);
