@@ -126,8 +126,11 @@ class Play extends Phaser.Scene {
             this.ship03.update();   
             this.ship04.update(); 
         }
-
-
+        if(this.p1Bullet.y <= borderUISize * 3 + borderPadding) {
+            this.p1Bullet.reset();
+            this.p1Bullet.x = this.p1Rocket.x;
+            this.p1Bullet.y = this.p1Rocket.y;
+        }
         // check collisions
         if(this.checkCollision(this.p1Bullet, this.ship04)) {
             this.p1Bullet.reset();
