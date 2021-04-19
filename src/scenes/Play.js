@@ -99,8 +99,40 @@ class Play extends Phaser.Scene {
             },
             fixedWidth: 100
         }
+        let fireConfig = { 
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#FF0000',
+            color: '#FFFFFF',
+            align: 'left',
+            padding: {
+                top: 5,
+                bottom: 5,
+            },
+            fixedWidth: 70
+        }
+
+        let compConfig = { 
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#FF0000',
+            color: '#FFFFFF',
+            align: 'left',
+            padding: {
+                top: 5,
+                bottom: 5,
+            },
+            fixedWidth: 135
+        }
+ 
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize
         + borderPadding * 2, this.p1Score, scoreConfig);
+
+        this.fireLeft = this.add.text(game.config.width/2.5, borderUISize
+            + borderPadding * 2, 'FIRE', fireConfig);
+    
+        this.compLeft = this.add.text(game.config.width/1.8, borderUISize
+            + borderPadding * 2, 'COMPUTER', compConfig);
 
         // GAME OVER flag
         this.gameOver = false;
@@ -199,6 +231,7 @@ class Play extends Phaser.Scene {
          // score add and repaint
          this.p1Score += ship.points + 20;
          this.scoreLeft.text = this.p1Score;
+         this.fireConfig
          let temp = Phaser.Math.Between(1, 4);
          switch (temp) {
             case 1:

@@ -19,16 +19,20 @@ let HighScore = 0;
 let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keyDOWN;
 
 /*
-/////LIST OF ROCKET PATROL MODS/////
+-----------LIST OF ROCKET PATROL MODS IMPLEMENTED-----------
+------------------------------------------------------------
+- Add your own (copyright-free) background music to the Play scene (5)
+- Create a new scrolling tile sprite for the background (5)
+- Create 4 new explosion SFX and randomize which one plays on impact (10)
+- Replace the UI borders with new artwork (10)
+- Create a new animated sprite for the Spaceship enemies (10)
+- Create a new title screen (e.g., new artwork, typography, layout) (10)
+- Implement parallax scrolling (10)
+- Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (20)
+  Implement an alternating two-player mode (20)
+- Create new artwork for all of the in-game assets (rocket, spaceships, explosion) (20) 
+- Implement mouse control for player movement and mouse click to fire (20)
 
-- Create a new spaceship type (new artwork, smaller, faster, worth more) (20)
-- Replace UI border w/new artwork (10)
-- Create new title screen (10)
-- Introduce copy-right free music (5)
-- Implement mouse control (20)
-- Create new artwork for all in-game assets (20)
-- Implemented parallax scrolling (10)
-- 
 
 
 */
