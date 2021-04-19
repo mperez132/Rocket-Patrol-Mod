@@ -7,24 +7,39 @@ class Rocket extends Phaser.GameObjects.Sprite {
         this.isFiring = false;
     }
     update() {
-        if(this.isFiring){
-
-
-        }
-        else {
+        if(!this.isFiring){
             if(game.settings.mouse) {
-                
+                this.x = game.input.mousePointer.x;
+                this.x = Phaser.Math.Clamp(this.x, borderUISize + borderPadding,
+                    game.config.width - borderUISize - borderPadding);
+            }
+            else {
+                if(keyLEFT.isDown && this.x >= borderUISize + this.width) {
+                    this.x -= this.movementSpeed;
+                }
+                else if(keyRIGHT.isDown && this.x <= game.config.width - 
+                    borderUISize - this.width) {
+                        this.x += this.movementSpeed;
+                }
+                if(Phaser.Input.Keyboard.JustDown(keyF) && !this.isFiring) {
+                    this.isFiring = true;
+                }
+                this.x = Phaser.Math.Clamp(this.x, borderUISize + borderPadding,
+                    game.config.width - borderUISize - borderPadding);
             }
         }
-
-
-
-
-
-
-
-
-        if(!this.isFiring) {
+        if(this.isFiring && this.y >= borderUISize * 3 + borderPadding) {
+            this.y -= this.movementSpeed;
+         }
+        if(this.y <= borderUISize * 3 + borderPadding) {
+            this.reset();
+        }
+    }
+    reset() {
+        this.isFiring = false;
+        this.y = game.config.height - borderUISize - borderPadding;
+    }
+            /*if(!this.isFiring) {
             if(keyLEFT.isDown && this.x >= borderUISize + this.width) {
                 this.x -= this.movementSpeed;
             }
@@ -41,10 +56,5 @@ class Rocket extends Phaser.GameObjects.Sprite {
         }
         if(this.y <= borderUISize * 3 + borderPadding) {
             this.reset();
-        }
-    }
-    reset() {
-        this.isFiring = false;
-        this.y = game.config.height - borderUISize - borderPadding;
-    }
+        }*/
 }
