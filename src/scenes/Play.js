@@ -231,7 +231,9 @@ class Play extends Phaser.Scene {
          // score add and repaint
          this.p1Score += ship.points + 20;
          this.scoreLeft.text = this.p1Score;
-         this.fireConfig
+         this.fireLeft.color = '#004000';
+         this.fireLeft.text =  '';
+
          let temp = Phaser.Math.Between(1, 4);
          switch (temp) {
             case 1:
@@ -249,6 +251,7 @@ class Play extends Phaser.Scene {
             default:
                 this.sound.play('sfx_retro1');
          }
+         this.fire();
     }
     shipExplode(ship) {
         // temporarily hide ship
@@ -264,6 +267,8 @@ class Play extends Phaser.Scene {
         // score add and repaint
         this.p1Score += ship.points;
         this.scoreLeft.text = this.p1Score;
+        this.fireLeft.color = '#004000';
+        this.fireLeft.text =  '';
         let temp = Phaser.Math.Between(1, 4);
         switch (temp) {
            case 1:
@@ -281,6 +286,14 @@ class Play extends Phaser.Scene {
            default:
                this.sound.play('sfx_retro1');
         }
+        this.fire();
+    }
+
+    fire() {
+        setTimeout(() => {
+            this.fireLeft.text =  'FIRE';
+            this.fireLeft.color = '#FF0000';
+        }, 500);
     }
     
 }
