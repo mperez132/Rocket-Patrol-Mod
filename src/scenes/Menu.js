@@ -50,7 +50,8 @@ class Menu extends Phaser.Scene {
             // easy mode
             game.settings = {
                 spaceshipSpeed: 3,
-                gameTimer: 60000
+                gameTimer: 60000,
+                mouse = false
             }
             this.sound.play('sfx_retro');
             this.scene.start('playScene');
@@ -59,7 +60,8 @@ class Menu extends Phaser.Scene {
             // hard mode
             game.settings = {
                 spaceshipSpeed: 4,
-                gameTimer: 45000
+                gameTimer: 45000, 
+                mouse = false
             }
             this.sound.play('sfx_retro');
             this.scene.start('playScene');
@@ -68,7 +70,8 @@ class Menu extends Phaser.Scene {
             // easy mode
             game.settings = {
                 spaceshipSpeed: 3,
-                gameTimer: 60000
+                gameTimer: 60000,
+                mouse = true
             }
             this.sound.play('sfx_retro');
             this.scene.start('playScene');
@@ -77,7 +80,8 @@ class Menu extends Phaser.Scene {
             // hard mode
             game.settings = {
                 spaceshipSpeed: 4,
-                gameTimer: 45000
+                gameTimer: 45000,
+                mouse = true
             }
             this.sound.play('sfx_retro');
             this.scene.start('playScene');
