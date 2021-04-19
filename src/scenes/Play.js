@@ -11,6 +11,8 @@ class Play extends Phaser.Scene {
         this.load.image('bullet', './assets/bullet.png');
         this.load.image('UI', './assets/UIborder.png');
         this.load.image('newFighter', './assets/NewFighter.png');
+        this.load.audio('sfx_exp1', './assets/explosion1.wav');
+        this.load.audio('sfx_exp2', './assets/explosion 2.wav');
         this.load.audio('sfx_menu', './assets/mixkit-ritual-synth-suspense-683.wav');
         //mixkit-failure-arcade-alert-notification-240
         // load spritesheet
@@ -195,7 +197,23 @@ class Play extends Phaser.Scene {
          // score add and repaint
          this.p1Score += ship.points + 20;
          this.scoreLeft.text = this.p1Score;
-         this.sound.play('sfx_retro1')
+         let temp = Phaser.Math.Between(1, 4);
+         switch (temp) {
+            case 1:
+                this.sound.play('sfx_retro1');
+                break;
+            case 2:
+                this.sound.play('sfx_retro2');
+                break;
+            case 3:
+                this.sound.play('sfx_exp1');
+                break;
+            case 4:
+                this.sound.play('sfx_exp2');
+                break;  
+            default:
+                this.sound.play('sfx_retro1');
+         }
     }
     shipExplode(ship) {
         // temporarily hide ship
@@ -211,7 +229,23 @@ class Play extends Phaser.Scene {
         // score add and repaint
         this.p1Score += ship.points;
         this.scoreLeft.text = this.p1Score;
-        this.sound.play('sfx_retro2')
+        let temp = Phaser.Math.Between(1, 4);
+        switch (temp) {
+           case 1:
+               this.sound.play('sfx_retro1');
+               break;
+           case 2:
+               this.sound.play('sfx_retro2');
+               break;
+           case 3:
+               this.sound.play('sfx_exp1');
+               break;
+           case 4:
+               this.sound.play('sfx_exp2');
+               break;  
+           default:
+               this.sound.play('sfx_retro1');
+        }
     }
     
 }

@@ -3,7 +3,7 @@ class Bullet extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture, frame);
         this.sfxBullet = scene.sound.add('sfx_bullet');
         scene.add.existing(this);
-        this.movementSpeed = 2.5;
+        this.movementSpeed = 2;
         this.isFiring = false;
     }
     update() {
