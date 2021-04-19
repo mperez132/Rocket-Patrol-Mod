@@ -19,6 +19,11 @@ let HighScore = 0;
 let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keyDOWN;
 
 /*
+Name:                   Moises Perez
+Project Title:          Rocket Patrol Tank Mod
+Time for completion:    ~8 hours
+
+
 -----------LIST OF ROCKET PATROL MODS IMPLEMENTED-----------
 ------------------------------------------------------------
 - Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (20)
@@ -33,7 +38,6 @@ let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keyDOWN;
 - Create a new scrolling tile sprite for the background (5)
 - Implement the 'FIRE' UI text from the original game (5)
 - Create a new scrolling tile sprite for the background (5)
-
 
 
 
