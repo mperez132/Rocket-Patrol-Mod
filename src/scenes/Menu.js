@@ -19,6 +19,7 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx_menu', './assets/mixkit-ritual-synth-suspense-683.wav');
         this.load.image('title_menu', './assets/titlescreen.png');
         this.load.image('starfield', './assets/starfield.png');
+        this.load.image('grass', './assets/grass.png');
         this.load.image('title_words', './assets/title.png');
         this.load.image('UItemp', './assets/UIborder.png');
     }
@@ -30,6 +31,8 @@ class Menu extends Phaser.Scene {
             'starfield').setOrigin(0, 0);
         this.title1 = this.add.tileSprite(0, 0, game.config.width, game.config.height,
             'title_words').setOrigin(0, 0);
+        this.ground = this.add.tileSprite(0, 0, game.config.width, game.config.height,
+            'grass').setOrigin(0, 0);
         //this.sound.play('sfx_menu');
         // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -40,6 +43,7 @@ class Menu extends Phaser.Scene {
 
     update() {
         this.starfield.tilePositionX -= menuSpeed;
+        this.ground.tilePositionX -= grassSpeed;
         if (Phaser.Input.Keyboard.JustDown(keyUP)) {
             // easy mode
             game.settings = {
