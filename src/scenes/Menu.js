@@ -1,3 +1,5 @@
+//CMPM-120 ROCKET PATROL MOD/REMAKE
+//Moises Perez -- mperez86@ucsc.edu
 
 class Menu extends Phaser.Scene {
     constructor() {

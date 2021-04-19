@@ -1,3 +1,5 @@
+//CMPM-120 ROCKET PATROL MOD/REMAKE
+//Moises Perez -- mperez86@ucsc.edu
 class Ship extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame, pointValue) {
         super(scene, x, y, texture, frame);

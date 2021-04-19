@@ -1,3 +1,6 @@
+//CMPM-120 ROCKET PATROL MOD/REMAKE
+//Moises Perez -- mperez86@ucsc.edu
+
 let config = { 
     type: Phaser.CANVAS,
     width: 640,
