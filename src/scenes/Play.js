@@ -13,9 +13,6 @@ class Play extends Phaser.Scene {
         this.load.image('bullet', './assets/bullet.png');
         this.load.image('UI', './assets/UIborder.png');
         this.load.image('newFighter', './assets/NewFighter.png');
-        this.load.audio('sfx_exp1', './assets/explosion1.wav');
-        this.load.audio('sfx_exp2', './assets/explosion 2.wav');
-        this.load.audio('sfx_menu', './assets/mixkit-ritual-synth-suspense-683.wav');
         //mixkit-failure-arcade-alert-notification-240
         // load spritesheet
         this.load.spritesheet('explosion', './assets/explosion.png', {

@@ -25,6 +25,9 @@ class Menu extends Phaser.Scene {
         this.load.image('grass', './assets/grass.png');
         this.load.image('title_words', './assets/title.png');
         this.load.image('UItemp', './assets/UIborder.png');
+        this.load.audio('sfx_exp1', './assets/explosion1.wav');
+        this.load.audio('sfx_exp2', './assets/explosion 2.wav');
+        this.load.audio('sfx_menu', './assets/mixkit-ritual-synth-suspense-683.wav');
     }
 
     create() {
