@@ -51,7 +51,7 @@ class Menu extends Phaser.Scene {
             game.settings = {
                 spaceshipSpeed: 3,
                 gameTimer: 60000,
-                mouse = false
+                mouse: false
             }
             this.sound.play('sfx_retro');
             this.scene.start('playScene');
@@ -61,7 +61,7 @@ class Menu extends Phaser.Scene {
             game.settings = {
                 spaceshipSpeed: 4,
                 gameTimer: 45000, 
-                mouse = false
+                mouse: false
             }
             this.sound.play('sfx_retro');
             this.scene.start('playScene');
@@ -71,7 +71,7 @@ class Menu extends Phaser.Scene {
             game.settings = {
                 spaceshipSpeed: 3,
                 gameTimer: 60000,
-                mouse = true
+                mouse: true
             }
             this.sound.play('sfx_retro');
             this.scene.start('playScene');
@@ -81,7 +81,7 @@ class Menu extends Phaser.Scene {
             game.settings = {
                 spaceshipSpeed: 4,
                 gameTimer: 45000,
-                mouse = true
+                mouse: true
             }
             this.sound.play('sfx_retro');
             this.scene.start('playScene');
