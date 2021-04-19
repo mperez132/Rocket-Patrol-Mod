@@ -10,6 +10,7 @@ let game =  new Phaser.Game(config);
 let borderUISize = game.config.height / 15;
 let borderPadding = borderUISize / 3;
 let starSpeed = 3;
+let menuSpeed = 1;
 let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keyDOWN;
 
 /*
