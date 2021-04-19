@@ -9,9 +9,9 @@ let game =  new Phaser.Game(config);
 
 let borderUISize = game.config.height / 15;
 let borderPadding = borderUISize / 3;
-let starSpeed = 2;
-let menuSpeed = 1;
-let grassSpeed = 0.5;
+let starSpeed = 1.5;
+let menuSpeed = 0.5;
+let grassSpeed = 0.3;
 let HighScore = 0;
 let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keyDOWN;
 

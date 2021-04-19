@@ -18,7 +18,6 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx_play', './assets/mixkit-cinematic-action-suspense-688.wav');
         //mixkit-electronic-retro-block-hit-2185
         this.load.audio('sfx_bullet', './assets/mixkit-electronic-retro-block-hit-2185.wav');
-        this.load.audio('sfx_menu', './assets/mixkit-ritual-synth-suspense-683.wav');
         this.load.image('title_menu', './assets/titlescreen.png');
         this.load.image('starfield', './assets/starfield.png');
         this.load.image('grass', './assets/grass.png');

@@ -5,7 +5,7 @@ class UniqueShip extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);
         this.seconds = timeValue;
         this.points = pointValue;
-        this.movementSpeed = 3;
+        this.movementSpeed = 2;
     }
     update() {
         this.x -= this.movementSpeed;

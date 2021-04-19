@@ -11,6 +11,7 @@ class Play extends Phaser.Scene {
         this.load.image('bullet', './assets/bullet.png');
         this.load.image('UI', './assets/UIborder.png');
         this.load.image('newFighter', './assets/NewFighter.png');
+        this.load.audio('sfx_menu', './assets/mixkit-ritual-synth-suspense-683.wav');
         //mixkit-failure-arcade-alert-notification-240
         // load spritesheet
         this.load.spritesheet('explosion', './assets/explosion.png', {
@@ -27,7 +28,12 @@ class Play extends Phaser.Scene {
         'starfield').setOrigin(0, 0);
         this.ground = this.add.tileSprite(0, 0, game.config.width, game.config.height,
             'grass').setOrigin(0, 0);
-        this.sound.play('sfx_menu');
+
+        let music = this.sound.add('sfx_menu');
+        music.volume = 0.05;
+        music.loop = true;
+        music.play();
+        
         // green UI background
         this.add.rectangle(0, borderUISize + borderPadding -15, game.config.width,
         borderUISize * 2.3, 0x004000).setOrigin(0, 0);
