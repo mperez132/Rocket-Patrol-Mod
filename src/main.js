@@ -19,11 +19,12 @@ let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keyDOWN;
 /////LIST OF ROCKET PATROL MODS/////
 
 - Create a new spaceship type (new artwork, smaller, faster, worth more) (20)
-- Replace UI border w/new artwork (20)
+- Replace UI border w/new artwork (10)
 - Create new title screen (10)
 - Introduce copy-right free music (5)
 - Implement mouse control (20)
 - Create new artwork for all in-game assets (20)
+- Implemented parallax scrolling (10)
 - 
 
 

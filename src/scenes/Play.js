@@ -8,6 +8,7 @@ class Play extends Phaser.Scene {
         this.load.image('rocket', './assets/rocket.png');
         this.load.image('spaceship', './assets/spaceship.png');
         this.load.image('starfield', './assets/starfield.png');
+        this.load.image('bullet', './assets/bullet.png');
         this.load.image('UI', './assets/UIborder.png');
         this.load.image('newFighter', './assets/NewFighter.png');
         //mixkit-failure-arcade-alert-notification-240
@@ -24,7 +25,8 @@ class Play extends Phaser.Scene {
         // place starfield
         this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height,
         'starfield').setOrigin(0, 0);
-
+        this.ground = this.add.tileSprite(0, 0, game.config.width, game.config.height,
+            'grass').setOrigin(0, 0);
         this.sound.play('sfx_menu');
         // green UI background
         this.add.rectangle(0, borderUISize + borderPadding -15, game.config.width,
@@ -34,6 +36,10 @@ class Play extends Phaser.Scene {
         //this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
         //this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
         //this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
+
+        //add bullet 
+        this.p1Bullet = new Bullet(this, game.config.width/2, game.config.height - 
+        borderUISize - borderPadding, 'bullet').setOrigin(0.5, 0);
 
         // add rocket (player 1)
         this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - 
@@ -110,40 +116,55 @@ class Play extends Phaser.Scene {
         }
 
         this.starfield.tilePositionX -= starSpeed;
+        this.ground.tilePositionX -= grassSpeed;
 
         if (!this.gameOver) {
-            this.p1Rocket.update();         // update rocket sprite
+            this.p1Bullet.update();         // update bullet sprite
+            this.p1Rocket.update();
             this.ship01.update();           // update spaceships (x3)
             this.ship02.update();
             this.ship03.update();   
             this.ship04.update(); 
         }
 
+
         // check collisions
-        if(this.checkCollision(this.p1Rocket, this.ship04)) {
-            this.p1Rocket.reset();
+        if(this.checkCollision(this.p1Bullet, this.ship04)) {
+            this.p1Bullet.reset();
+            this.ship04.movementSpeed += 0.2;
+            this.p1Bullet.x = this.p1Rocket.x;
+            this.p1Bullet.y = this.p1Rocket.y;
             this.UniqueShipExplode(this.ship04);
         }
-        if(this.checkCollision(this.p1Rocket, this.ship03)) {
-            this.p1Rocket.reset();
+        if(this.checkCollision(this.p1Bullet, this.ship03)) {
+            this.p1Bullet.reset();
+            this.ship03.movementSpeed += 0.2;
+            this.p1Bullet.x = this.p1Rocket.x
+            this.p1Bullet.y = this.p1Rocket.y;
             this.UniqueShipExplode(this.ship03);
         }
-        if(this.checkCollision(this.p1Rocket, this.ship02)) {
-            this.p1Rocket.reset();
+        if(this.checkCollision(this.p1Bullet, this.ship02)) {
+            this.p1Bullet.reset();
+            this.ship02.movementSpeed += 0.3;
+            this.p1Bullet.x = this.p1Rocket.x
+            this.p1Bullet.y = this.p1Rocket.y;
             this.shipExplode(this.ship02);
         }
-        if(this.checkCollision(this.p1Rocket, this.ship01)) {
-            this.p1Rocket.reset();
+        if(this.checkCollision(this.p1Bullet, this.ship01)) {
+            this.p1Bullet.reset();
+            this.ship01.movementSpeed += 0.3;
+            this.p1Bullet.x = this.p1Rocket.x
+            this.p1Bullet.y = this.p1Rocket.y;
             this.shipExplode(this.ship01);
         }
     }
 
-    checkCollision(rocket, ship) {
+    checkCollision(bullet, ship) {
         // simple AABB checking
-        if( rocket.x < ship.x + ship.width &&
-            rocket.x + rocket.width > ship.x &&
-            rocket.y < ship.y + ship.height &&
-            rocket.height + rocket.y > ship.y) {
+        if( bullet.x < ship.x + ship.width &&
+            bullet.x + bullet.width > ship.x &&
+            bullet.y < ship.y + ship.height &&
+            bullet.height + bullet.y > ship.y) {
                 return true;
         } else {
             return false;
@@ -163,9 +184,8 @@ class Play extends Phaser.Scene {
              boom.destroy();                     // remove explosion sprite
          });
          // score add and repaint
-         this.p1Score += ship.points;
+         this.p1Score += ship.points + 20;
          this.scoreLeft.text = this.p1Score;
- 
          this.sound.play('sfx_retro1')
     }
     shipExplode(ship) {
@@ -182,7 +202,7 @@ class Play extends Phaser.Scene {
         // score add and repaint
         this.p1Score += ship.points;
         this.scoreLeft.text = this.p1Score;
-
         this.sound.play('sfx_retro2')
     }
+    
 }
