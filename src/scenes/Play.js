@@ -58,8 +58,6 @@ class Play extends Phaser.Scene {
         this.ship03 = new UniqueShip(this, game.config.width, borderUISize * 6 + borderPadding * 4, 'newFighter', 0, 10).setOrigin(0, 0);
         this.ship04 = new UniqueShip(this, game.config.width + borderUISize * 3 , borderUISize * 5, 'newFighter', 0, 20).setOrigin(0, 0);
 
-        this.UI = this.add.tileSprite(0, 0, game.config.width, game.config.height,
-        'UI').setOrigin(0, 0);
 
         // define keys
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
@@ -79,6 +77,9 @@ class Play extends Phaser.Scene {
             }),
             frameRate: 30
         });
+
+        this.UI = this.add.tileSprite(0, 0, game.config.width, game.config.height,
+            'UI').setOrigin(0, 0);
 
         // initialize score
         this.p1Score = 0;
@@ -173,28 +174,28 @@ class Play extends Phaser.Scene {
         // check collisions
         if(this.checkCollision(this.p1Bullet, this.ship04)) {
             this.p1Bullet.reset();
-            this.ship04.movementSpeed += 0.2;
+            this.ship04.movementSpeed += 0.1;
             this.p1Bullet.x = this.p1Rocket.x;
             this.p1Bullet.y = this.p1Rocket.y;
             this.UniqueShipExplode(this.ship04);
         }
         if(this.checkCollision(this.p1Bullet, this.ship03)) {
             this.p1Bullet.reset();
-            this.ship03.movementSpeed += 0.2;
+            this.ship03.movementSpeed += 0.1;
             this.p1Bullet.x = this.p1Rocket.x
             this.p1Bullet.y = this.p1Rocket.y;
             this.UniqueShipExplode(this.ship03);
         }
         if(this.checkCollision(this.p1Bullet, this.ship02)) {
             this.p1Bullet.reset();
-            this.ship02.movementSpeed += 0.3;
+            this.ship02.movementSpeed += 0.2;
             this.p1Bullet.x = this.p1Rocket.x
             this.p1Bullet.y = this.p1Rocket.y;
             this.shipExplode(this.ship02);
         }
         if(this.checkCollision(this.p1Bullet, this.ship01)) {
             this.p1Bullet.reset();
-            this.ship01.movementSpeed += 0.3;
+            this.ship01.movementSpeed += 0.2;
             this.p1Bullet.x = this.p1Rocket.x
             this.p1Bullet.y = this.p1Rocket.y;
             this.shipExplode(this.ship01);
