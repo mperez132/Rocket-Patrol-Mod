@@ -53,10 +53,10 @@ class Play extends Phaser.Scene {
         borderUISize - borderPadding, 'rocket').setOrigin(0.5, 0);
 
         // add spaceship (x3)
-        this.ship01 = new Ship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'spaceship', 0, 30).setOrigin(0, 0);
+        this.ship01 = new Ship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'spaceship', 0, 20).setOrigin(0, 0);
         this.ship02 = new Ship(this, game.config.width + borderUISize * 3, borderUISize * 7, 'spaceship', 0, 20).setOrigin(0, 0);
-        this.ship03 = new UniqueShip(this, game.config.width, borderUISize * 6 + borderPadding * 4, 'newFighter', 0, 10).setOrigin(0, 0);
-        this.ship04 = new UniqueShip(this, game.config.width + borderUISize * 3 , borderUISize * 5, 'newFighter', 0, 20).setOrigin(0, 0);
+        this.ship03 = new UniqueShip(this, game.config.width, borderUISize * 6 + borderPadding * 4, 'newFighter', 0, 40).setOrigin(0, 0);
+        this.ship04 = new UniqueShip(this, game.config.width + borderUISize * 3 , borderUISize * 5, 'newFighter', 0, 40).setOrigin(0, 0);
 
 
         // define keys
@@ -227,7 +227,7 @@ class Play extends Phaser.Scene {
              boom.destroy();                     // remove explosion sprite
          });
          // score add and repaint
-         this.p1Score += ship.points + 20;
+         this.p1Score += ship.points;
          this.scoreLeft.text = this.p1Score;
          this.fireLeft.color = '#004000';
          this.fireLeft.text =  '';
